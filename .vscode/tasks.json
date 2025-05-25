@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev:frontend",
+      "type": "shell",
+      "command": "pnpm --filter frontend dev",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "dev:backend",
+      "type": "shell",
+      "command": "pnpm --filter backend start:dev",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "dev:go-service",
+      "type": "shell",
+      "command": "cd apps/go-service && go run main.go",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "docker:compose",
+      "type": "shell",
+      "command": "docker compose -f infra/docker/docker-compose.yml up --build",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

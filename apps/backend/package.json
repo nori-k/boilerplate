@@ -1,0 +1,46 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nest start --watch",
+    "start": "nest start",
+    "build": "nest build",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "jest --config jest.config.js --runInBand",
+    "generate:kysely-types": "kysely-codegen --out-file src/kysely-types.ts prisma/schema.prisma"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "@nestjs/common": "^11.1.1",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.1",
+    "@nestjs/platform-fastify": "^11.1.1",
+    "@prisma/client": "^6.8.2",
+    "@tanstack/react-query": "^5.77.1",
+    "@trpc/client": "^11.1.2",
+    "@trpc/react-query": "^11.1.2",
+    "@trpc/server": "^11.1.2",
+    "fastify": "^5.3.3",
+    "kysely": "^0.28.2",
+    "pg": "^8.16.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "zod": "^3.25.28"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.7",
+    "eslint": "^9.27.0",
+    "kysely-codegen": "^0.18.5",
+    "prettier": "^3.5.3",
+    "prisma": "^6.8.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
