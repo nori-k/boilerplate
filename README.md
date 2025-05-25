@@ -43,6 +43,89 @@ pnpm install
 
 ---
 
-- turbo/pnpm workspace/tsconfigのパスエイリアスは全て設定済みです。
-- 不要なnode_modulesやpnpm-lock.yamlは各サービス直下に作成しないよう注意してください。
-- 各サービスの詳細はそれぞれのディレクトリ内READMEやコードコメントを参照してください。
+## 🚀 セットアップ手順
+
+1. **リポジトリをクローン**
+
+   ```sh
+   git clone https://github.com/yourname/monorepo-boilerplate.git
+   cd monorepo-boilerplate
+   ```
+
+2. **依存関係のインストール**
+
+   ```sh
+   pnpm install
+   ```
+
+3. **DB(PostgreSQL)の起動（Docker利用推奨）**
+
+   ```sh
+   docker compose -f infra/docker/docker-compose.yml up -d db
+   ```
+
+4. **.envファイルの作成**
+
+   各サービスの`.env.example`を参考に`.env`を作成してください。
+
+5. **Prismaマイグレーション（初回のみ）**
+
+   ```sh
+   pnpm --filter backend exec prisma migrate dev
+   ```
+
+6. **Kysely型自動生成（Prismaスキーマ変更時）**
+
+   ```sh
+   pnpm --filter backend run generate:kysely-types
+   ```
+
+---
+
+## 🛠️ 開発用サーバー起動
+
+### フロントエンド（Next.js）
+
+```sh
+pnpm --filter frontend dev
+```
+
+### バックエンド（NestJS）
+
+```sh
+pnpm --filter backend start:dev
+```
+
+### Goサービス
+
+```sh
+pnpm run dev:go-service
+```
+
+### すべてのサービスをDocker Composeで一括起動
+
+```sh
+docker compose -f infra/docker/docker-compose.yml up --build
+```
+
+---
+
+## 🧪 テスト
+
+```sh
+pnpm test
+```
+
+Goサービスのみ:
+
+```sh
+cd apps/go-service && go test
+```
+
+---
+
+## 💡 その他
+
+- `.env`はgit管理外です。`.env.example`を参考に各自作成してください。
+- DB永続化データは`infra/db/`配下に保存されます。
+- 詳細な開発・運用フローは各サービスのREADMEや`monorepo-structure.md`も参照してください。
