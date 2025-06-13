@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { HelloController } from './hello.controller';
 import { ConfigModule } from '@nestjs/config';
-import { PrismaModule } from './database/prisma.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), PrismaModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), DatabaseModule],
   controllers: [HelloController],
   providers: [],
 })

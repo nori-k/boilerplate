@@ -12,4 +12,4 @@ import { KyselyService } from './kysely.service';
   providers: [PrismaService, KyselyService],
   exports: [PrismaService, KyselyService],
 })
-export class PrismaModule {}
+export class DatabaseModule {}
