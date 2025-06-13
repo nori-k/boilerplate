@@ -1,4 +1,9 @@
-# See https://pnpm.io/workspaces
 packages:
   - apps/*
   - packages/*
+onlyBuiltDependencies:
+  - '@nestjs/core'
+  - '@prisma/client'
+  - '@prisma/engines'
+  - '@tailwindcss/oxide'
+  - prisma
